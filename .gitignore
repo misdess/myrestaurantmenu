@@ -1,0 +1,25 @@
+## EDITORS
+
+# intellij
+.idea
+*.iml
+
+# eclipse
+.settings
+.classpath
+.project
+
+## BUILD RELATED
+
+# java
+target/
+
+# xpe deployment
+xpe.config
+
+# sonatype nexus iq
+.sonatype
+
+.flattened-pom.xml
+/ncsd/database/liquibase/src/main/resources/changesets/data/cvsa/NCSD-33864_CVSA_EnumerationValues.xml
+/ncsd/database/liquibase/src/main/resources/changesets/schema/NCSD-33864_CVSA_Enumerations.xml
