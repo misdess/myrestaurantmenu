@@ -20,7 +20,7 @@ public class XmlFileParserTest {
         String path = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu.xml");
         MenuBook.createInstance( "asc");
 
-        TreeMap<String, Menu> menuBook = xmlFileParser.parseFileAndPopulateMenuBook(path);
+        TreeMap<String, Menu> menuBook = xmlFileParser.parseMenuFile(path);
         Assert.assertEquals(5, menuBook.keySet().size());
         Assert.assertEquals(FIRST_ENTRY, menuBook.firstKey());
         Assert.assertEquals(LAST_ENTRY, menuBook.lastKey());

@@ -16,7 +16,7 @@ import org.apache.commons.io.FilenameUtils;
 
 public class CustomCommandParser {
     public static final String HELP = "help";
-    public static final String HELP_DESCRIPTION = "Usage: java -jar <jar file> <input xml/json file> <order>. \n" +
+    public static final String HELP_DESCRIPTION = "Usage: java -jar <jar file> <xml/json file> <order (asc, desc)>. \n" +
             " Eg. java -jar menu-1.0-SNAPSHOT.jar menu.xml desc";
 
     Set<String> order = new HashSet<>();

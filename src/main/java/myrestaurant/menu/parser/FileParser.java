@@ -7,6 +7,6 @@ import myrestaurant.menu.model.Menu;
 
 public interface FileParser {
 
-    public TreeMap<String, Menu> parseFileAndPopulateMenuBook(String path);
+    public TreeMap<String, Menu> parseMenuFile(String path);
 
 }

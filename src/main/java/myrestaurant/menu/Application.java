@@ -26,7 +26,7 @@ public class Application {
         MenuBook.createInstance(args[1]);
 
         FileParser fileParser = getFileParser(args);
-        fileParser.parseFileAndPopulateMenuBook(args[0]);
+        fileParser.parseMenuFile(args[0]);
 
         MenuBook.printMenu();
     }
@@ -34,14 +34,12 @@ public class Application {
     private static FileParser getFileParser(String[] args) {
 
         String ext = FilenameUtils.getExtension(args[0]);
-        FileParser fileParser;
         if (JSON.equalsIgnoreCase(ext)) {
-            fileParser = new JsonFileParser();
+            return new JsonFileParser();
         } else {
-            fileParser = new XmlFileParser();
+            return new XmlFileParser();
         }
 
-        return fileParser;
     }
 
 }

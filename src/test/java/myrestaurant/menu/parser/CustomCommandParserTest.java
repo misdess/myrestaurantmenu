@@ -8,16 +8,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CustomCommandParserTest {
+
     CustomCommandParser parser = new CustomCommandParser();
-    private final String filePath = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu.json");
-    private final String order = "asc";
+
+    String args[] = new String[2];
 
     @Test
-    public void testValidArguments() throws ParseException {
-
-        String args[] = new String[2];
-        args[0] = filePath;
-        args[1] = order;
+    public void testArgumentsAreValid() throws ParseException {
+        args[0] = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu.json");
+        args[1] = "asc";
 
         ValidationResult validationResult = parser.validateArguments(args);
 
@@ -25,11 +24,19 @@ public class CustomCommandParserTest {
     }
 
     @Test
-    public void testInvalidArguments() throws ParseException {
+    public void testArgumentsAreInvalidForFileWithoutExtension() throws ParseException {
+        args[0] = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu");
+        args[1] = "asc";
 
-        String args[] = new String[2];
-        args[0] = filePath.concat("wrong");
-        args[1] = order;
+        ValidationResult validationResult = parser.validateArguments(args);
+
+        Assert.assertEquals(ValidationResult.INVALID, validationResult);
+    }
+
+    @Test
+    public void testArgumentsAreInvalidForWrongOrder() throws ParseException {
+        args[0] = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu.json");
+        args[1] = "ascending";
 
         ValidationResult validationResult = parser.validateArguments(args);
 

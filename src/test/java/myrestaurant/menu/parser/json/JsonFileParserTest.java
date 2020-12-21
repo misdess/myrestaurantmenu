@@ -16,14 +16,13 @@ public class JsonFileParserTest {
 
     @Test
     public void testMenuInAscendingOrder() {
-        String filePath = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu.json");
+        String filePath = new File("").getAbsolutePath().concat("/src/test/resources/sample/menu.json");
         MenuBook.createInstance("asc");
 
-        TreeMap<String, Menu> menuBook = jsonFileParser.parseFileAndPopulateMenuBook(filePath);
+        TreeMap<String, Menu> menuBook = jsonFileParser.parseMenuFile(filePath);
         Assert.assertEquals(5, menuBook.keySet().size());
         Assert.assertEquals(FIRST_ENTRY, menuBook.firstKey());
         Assert.assertEquals(LAST_ENTRY, menuBook.lastKey());
     }
-
 
 }

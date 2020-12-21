@@ -27,7 +27,7 @@ public class XmlFileParser implements FileParser {
     private final String SCHEMA_FILE = "schema/menu.xsd";
 
     @Override
-    public TreeMap<String, Menu> parseFileAndPopulateMenuBook(String path) {
+    public TreeMap<String, Menu> parseMenuFile(String path) {
 
         File file = new File(path);
         InputStream schema = null;
@@ -65,7 +65,7 @@ public class XmlFileParser implements FileParser {
         InputStream input;
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         input = loader.getResourceAsStream(configFileName);
-        if (null == input) {
+        if (input == null) {
             throw new FileNotFoundException(configFileName);
         }
         return input;
@@ -86,7 +86,7 @@ public class XmlFileParser implements FileParser {
         } catch (IOException ex) {
             System.out.println(String.format("There is exception {}", ex.getMessage()));
         }
-        System.out.println("validation: " + validXML);
+
         return validXML;
     }
 
