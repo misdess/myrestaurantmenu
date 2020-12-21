@@ -17,7 +17,7 @@ public class XmlFileParserTest {
 
     @Test
     public void testMenuInAscendingOrder() {
-        String path = new File("").getAbsolutePath().concat("/src/main/resources/sample/menu.xml");
+        String path = new File("").getAbsolutePath().concat("/src/test/resources/sample/menu.xml");
         MenuBook.createInstance( "asc");
 
         TreeMap<String, Menu> menuBook = xmlFileParser.parseMenuFile(path);
